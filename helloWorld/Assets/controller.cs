@@ -5,7 +5,7 @@ using UnityEngine;
 public class controller : MonoBehaviour
 {
     [SerializeField]
-    float SPEED = 0.000000001f;
+    float SPEED = 1.0f;
     private Rigidbody2D rigidBody;
     private Vector2 inputAxis;
 
