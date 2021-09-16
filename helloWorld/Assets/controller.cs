@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class mwcontloller : MonoBehaviour
+public class controller : MonoBehaviour
 {
     Rigidbody2D rigid;
     float speed = 5.0f;
@@ -53,4 +54,17 @@ public class mwcontloller : MonoBehaviour
 
         this.rigid.velocity = new Vector2(this.vx, this.vy);
     }
+
+    private string enemyTag = "Enemy";
+
+    #region//ê⁄êGîªíË
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == enemyTag)
+        {
+            SceneManager.LoadScene("GameOverScene");
+            Debug.Log("ìGÇ∆ê⁄êGÇµÇΩÅI");
+        }
+    }
+    #endregion
 }
