@@ -2,95 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class controller : MonoBehaviour
+public class mwcontloller : MonoBehaviour
 {
-    [SerializeField]
-    //float SPEED = 1.0f;
-    private Rigidbody2D rigidBody;
-    private Vector2 inputAxis;
-    private bool up = false, down = false, left = false, right = false;
+    Rigidbody2D rigid;
+    float speed = 5.0f;
+    float vx = 0, vy = 0;
+
+    // Start is called before the first frame update
     void Start()
     {
-        // オブジェクトに設定しているRigidbody2Dの参照を取得する
-        this.rigidBody = GetComponent<Rigidbody2D>();
+        this.rigid = GetComponent<Rigidbody2D>();
     }
 
+
+    // Update is called once per frame
     void Update()
     {
-        // x,ｙの入力値を得る
-        // それぞれ+や-の値と入力の関連付けはInput Managerで設定されている
-        //inputAxis.x = Input.GetAxis("Horizontal");
-        //inputAxis.y = Input.GetAxis("Vertical");
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.up = true;
+            this.vx = -speed;
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                this.vx = 0;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.down = true;
+            this.vx = +speed;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else
         {
-            this.left = true;
+            this.vx = 0;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            this.right = true;
+            this.vy = -speed;
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                this.vy = 0;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
-            this.up = false;
+            this.vy = +speed;
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        else
         {
-            this.down = false;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            this.left = false;
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            this.right = false;
+            this.vy = 0;
         }
 
-        if (this.up)
-        {
-            this.rigidBody.AddForce(transform.up * 1.0f);
-        }
-        if (this.down)
-        {
-            this.rigidBody.AddForce(-transform.up * 1.0f);
-        }
-        if (this.right)
-        {
-            this.rigidBody.AddForce(transform.right * 1.0f);
-        }
-        if (this.left)
-        {
-            this.rigidBody.AddForce(-transform.right * 1.0f);
-        }
-        /*if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            transform.Translate(2, 0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            transform.Translate(-2, 0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            transform.Translate(0, 2, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            transform.Translate(0, -2, 0);
-        }*/
+        this.rigid.velocity = new Vector2(this.vx, this.vy);
     }
-
-    /*private void FixedUpdate()
-    {
-        // 速度を代入する
-        rigidBody.velocity = inputAxis.normalized * SPEED;
-    }*/
 }
