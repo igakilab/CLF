@@ -19,7 +19,7 @@ public class controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        /*if (Input.GetKey(KeyCode.LeftArrow))
         {
             this.vx = -speed;
             if (Input.GetKey(KeyCode.RightArrow))
@@ -53,9 +53,11 @@ public class controller : MonoBehaviour
         }
 
         this.rigid.velocity = new Vector2(this.vx, this.vy);
+        */
     }
 
     private string enemyTag = "Enemy";
+    private string chestTag = "Chest";
 
     #region//ÚG”»’è
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,6 +67,15 @@ public class controller : MonoBehaviour
             SceneManager.LoadScene("GameOverScene");
             Debug.Log("“G‚ÆÚG‚µ‚½I");
         }
+        else if (collision.collider.tag == chestTag)
+        {
+            //SceneManager.LoadScene("GameOverScene");
+            
+            Debug.Log("•ó” ‚ÆÚG‚µ‚½I");
+        }
     }
+
+    
+    
     #endregion
 }
