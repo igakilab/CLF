@@ -1,6 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
-/*
+
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
 public class AvatarController : MonoBehaviourPunCallbacks
 {
@@ -14,4 +14,3 @@ public class AvatarController : MonoBehaviourPunCallbacks
         }
     }
 }
-*/

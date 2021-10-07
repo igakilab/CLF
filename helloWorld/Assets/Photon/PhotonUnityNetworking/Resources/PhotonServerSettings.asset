@@ -17,9 +17,9 @@ MonoBehaviour:
     AppIdFusion: 
     AppIdChat: 4ed9ba8c-786b-4944-b949-57553d140f5c
     AppIdVoice: 
-    AppVersion: 
+    AppVersion: 1.0
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: ja
     Server: 
     Port: 0
     ProxyServer: 
@@ -30,7 +30,7 @@ MonoBehaviour:
     NetworkLogging: 1
   DevRegion: jp
   PunLogging: 0
-  EnableSupportLogger: 0
+  EnableSupportLogger: 1
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
