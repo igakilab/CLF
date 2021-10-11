@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
 public class AvatarController : MonoBehaviourPunCallbacks
@@ -26,5 +27,18 @@ public class AvatarController : MonoBehaviourPunCallbacks
             Vector3 playerPos = this.transform.position;
             camera.transform.position = new Vector3(playerPos.x, playerPos.y, -10);
         }
+    }
+
+    private string playerTag = "Prayer";
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("何かと接触した");
+        if (collision.collider.tag == playerTag)
+        {
+            SceneManager.LoadScene("GameOverScene");
+            Debug.Log("敵と接触した！");
+        
+        }
+            
     }
 }

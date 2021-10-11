@@ -207,21 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &153182635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153182629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dadf79f1f3b56348a76147f5feee003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &161257231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8558057734749683468, guid: 7d0c253aaab3c2a4fa2f1460f2aedae0, type: 3}
@@ -234,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161257231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f6ba4d244159574bae5c87d9334787d, type: 3}
   m_Name: 
@@ -3126,7 +3114,7 @@ GameObject:
   - component: {fileID: 1988680448}
   m_Layer: 0
   m_Name: kaizoku_takarabako
-  m_TagString: Chest
+  m_TagString: Prayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3410,6 +3398,18 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7383207569487477015, guid: 2645e2254da04f542af595dc25320a4d, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383207569487477015, guid: 2645e2254da04f542af595dc25320a4d, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 153182630}
+    - target: {fileID: 7383207569487477015, guid: 2645e2254da04f542af595dc25320a4d, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7383207569487477016, guid: 2645e2254da04f542af595dc25320a4d, type: 3}
       propertyPath: m_Name
       value: Circle (1)
@@ -3423,7 +3423,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2938713414977016109, guid: 7d0c253aaab3c2a4fa2f1460f2aedae0, type: 3}
+    - target: {fileID: -1909166948784920511, guid: 7d0c253aaab3c2a4fa2f1460f2aedae0, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
