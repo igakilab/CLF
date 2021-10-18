@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createRange: 10
-  chestNumber: 1
 --- !u!114 &304440378565240218
 MonoBehaviour:
   m_ObjectHideFlags: 0
