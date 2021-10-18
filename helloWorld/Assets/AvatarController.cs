@@ -29,15 +29,22 @@ public class AvatarController : MonoBehaviourPunCallbacks
         }
     }
 
-    private string playerTag = "Prayer";
+    private string playerTag = "Player";
+    private string chestTag = "Chest";
+    private int chestCount = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("‰½‚©‚ÆÚG‚µ‚½");
+        // Debug.Log("‰½‚©‚ÆÚG‚µ‚½");
         if (collision.collider.tag == playerTag)
         {
             SceneManager.LoadScene("GameOverScene");
             Debug.Log("“G‚ÆÚG‚µ‚½I");
         
+        }
+        if(collision.collider.tag == chestTag)
+        {
+            Debug.Log("•ó” ‚ÆÚG‚µ‚½I");
+            Debug.Log(++chestCount);
         }
             
     }
