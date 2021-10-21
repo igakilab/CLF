@@ -23,7 +23,7 @@ public class AvatarController : MonoBehaviourPunCallbacks
             //transform.Translate(6f * Time.deltaTime * input.normalized);
             //this.rb.AddForce(input);
             //this.rb.velocity = input*5.0f;
-            this.rb.AddForce(input);
+            this.rb.AddForce(1000*input * Time.deltaTime);
             Vector3 playerPos = this.transform.position;
             camera.transform.position = new Vector3(playerPos.x, playerPos.y, -10);
         }
