@@ -40,6 +40,7 @@ public class chestController : MonoBehaviour
         {
             Debug.Log("宝箱はプレイヤーと接触した！");
             Destroy(this.gameObject);
+            if(PhotonNetwork.IsMasterClient)
             chestCreate();
         }
 
