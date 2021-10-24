@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class chestController : MonoBehaviour
 {
-    public float createRange = 5f;
+    public int createRange = 30;
     //public int chestNumber = 2;
 
     // Start is called before the first frame update
@@ -24,10 +24,10 @@ public class chestController : MonoBehaviour
     {
         Vector2 chestPosition = new Vector2();
         
-        chestPosition.x = Random.Range(-createRange, createRange);
-        chestPosition.y = Random.Range(-createRange, createRange);
+        chestPosition.x = Random.Range(-29, 29);
+        chestPosition.y = Random.Range(-29, 29);
         PhotonNetwork.Instantiate("Kaizoku_Takarabako", chestPosition, Quaternion.identity);
-        Debug.Log("•ó” ‚ğ¶¬‚µ‚½I");
+        Debug.Log("•ó” ‚ğ¶¬‚µ‚½I(x:" + chestPosition.x + " y:" + chestPosition.y + ")");
         
     }
 

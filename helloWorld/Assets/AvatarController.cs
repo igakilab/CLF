@@ -31,6 +31,7 @@ public class AvatarController : MonoBehaviourPunCallbacks
 
     //private string playerTag = "Player";
     private string chestTag = "Chest";
+    private string deadzoneTag = "Deadzone";
     private int chestCount = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,6 +47,12 @@ public class AvatarController : MonoBehaviourPunCallbacks
             Debug.Log("宝箱と接触した！");
             Debug.Log(++chestCount);
         }
-            
+        if (collision.collider.tag == deadzoneTag)
+        {
+            Debug.Log("マグマに落ちた！");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOverScene");
+        }
+
     }
 }

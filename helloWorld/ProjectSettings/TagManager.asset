@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Chest
   - Prayer
+  - Deadzone
   layers:
   - Default
   - TransparentFX
