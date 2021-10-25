@@ -7,18 +7,22 @@ public class AvatarController : MonoBehaviourPunCallbacks
 {
     Camera camera;
     Rigidbody2D rb;
+    public GameObject photonController;
     private void Start()
 	{
         camera = Camera.main;
         this.rb = GetComponent<Rigidbody2D>();
-	}
+        photonController = GameObject.Find("photonControler");
+        
+    }
 
     private void Update()
     {
         
         // 自身が生成したオブジェクトだけに移動処理を行う
-        if (photonView.IsMine)
+        if (photonView.IsMine && photonController.GetComponent<SampleScene>().isGaming())
         {
+            
             var input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             //transform.Translate(6f * Time.deltaTime * input.normalized);
             //this.rb.AddForce(input);
