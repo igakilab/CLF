@@ -7,15 +7,23 @@ public class AvatarController : MonoBehaviourPunCallbacks
 {
     Camera camera;
     Rigidbody2D rb;
+    public GameObject timeUp;
+
     private void Start()
+
 	{
         camera = Camera.main;
         this.rb = GetComponent<Rigidbody2D>();
-	}
+        timeUp = GameObject.Find("GameObject");
+}
 
     private void Update()
     {
-        
+        if (timeUp.GetComponent<CountDown>().isTimeUp == true)
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
+
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
@@ -41,7 +49,8 @@ public class AvatarController : MonoBehaviourPunCallbacks
             Debug.Log("敵と接触した！");
         
         }*/
-        if(collision.collider.tag == chestTag)
+
+            if (collision.collider.tag == chestTag)
         {
             Debug.Log("宝箱と接触した！");
             Debug.Log(++chestCount);
