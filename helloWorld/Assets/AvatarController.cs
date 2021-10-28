@@ -7,8 +7,8 @@ public class AvatarController : MonoBehaviourPunCallbacks
 {
     Camera camera;
     Rigidbody2D rb;
-    public GameObject photonController;
-    public GameObject timeUp;
+    private GameObject photonController;
+    private GameObject timeUp;
 
     private void Start()
 	{

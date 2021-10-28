@@ -179,8 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6ba4d244159574bae5c87d9334787d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonController: {fileID: 0}
-  timeUp: {fileID: 0}
 --- !u!114 &-7805645276904263630
 MonoBehaviour:
   m_ObjectHideFlags: 0
