@@ -9,14 +9,13 @@ public class AvatarController : MonoBehaviourPunCallbacks
     Rigidbody2D rb;
     private GameObject photonController;
     private GameObject timeUp;
+    public static int chestCount = 0;
 
     private void Start()
 	{
         camera = Camera.main;
         this.rb = GetComponent<Rigidbody2D>();
         photonController = GameObject.Find("photonControler");
-        
-   
         timeUp = GameObject.Find("GameObject");
 	}
 
@@ -45,7 +44,6 @@ public class AvatarController : MonoBehaviourPunCallbacks
     //private string playerTag = "Player";
     private string chestTag = "Chest";
     private string deadzoneTag = "Deadzone";
-    private int chestCount = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Debug.Log("âΩÇ©Ç∆ê⁄êGÇµÇΩ");
@@ -56,10 +54,10 @@ public class AvatarController : MonoBehaviourPunCallbacks
         
         }*/
 
-            if (collision.collider.tag == chestTag)
+            if (photonView.IsMine && collision.collider.tag == chestTag)
         {
             Debug.Log("ïÛî†Ç∆ê⁄êGÇµÇΩÅI");
-            Debug.Log(++chestCount);
+            photonController.GetComponent<SampleScene>().viewCountText(++chestCount);
         }
         if (collision.collider.tag == deadzoneTag)
         {

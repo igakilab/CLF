@@ -1,12 +1,14 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     public GameObject hostButton;
     public GameObject otherText;
+    public Text countText;
     bool Gaming;
     private void Start()
     {
@@ -65,5 +67,10 @@ public class SampleScene : MonoBehaviourPunCallbacks
     public bool isGaming()
 	{
         return Gaming;
+	}
+
+    public void viewCountText(int point)
+	{
+        countText.text = point.ToString()+"pt";
 	}
 }
