@@ -2,17 +2,17 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class CountDown : MonoBehaviour
+public class GameRoomTimeDisplay : MonoBehaviour
 {
-    private float time = 60.0f;
-    public float true_time = 60.0f;
-    public bool isTimeUp;
+    private TextMeshProUGUI timeLabel;
+    public GameObject countdown;
     public GameObject photonController;
 
     private void Start()
     {
-        isTimeUp = false;
+        timeLabel = GetComponent<TextMeshProUGUI>();
         photonController = GameObject.Find("photonControler");
+        countdown = GameObject.Find("GameObject");
     }
 
     private void Update()
@@ -25,15 +25,12 @@ public class CountDown : MonoBehaviour
         // まだゲームの開始時刻が設定されていない場合は更新しない
         if (!PhotonNetwork.CurrentRoom.TryGetStartTime(out int timestamp)) { return; }
 
-        // ゲームの経過時間を求めて、小数第一位まで表示する
-        float elapsedTime = Mathf.Max(0f, unchecked(PhotonNetwork.ServerTimestamp - timestamp) / 1000f);
-        if (0 < true_time && photonController.GetComponent<SampleScene>().isGaming())
-        {
-            true_time = time - elapsedTime;
+        if (0 < countdown.GetComponent<CountDown>().true_time && photonController.GetComponent<SampleScene>().isGaming()) {
+            timeLabel.text = countdown.GetComponent<CountDown>().true_time.ToString("f1");
         }
-        else if (true_time < 0)
+        else if (countdown.GetComponent<CountDown>().true_time < 0)
         {
-            isTimeUp = true;
+            return;
         }
     }
 }

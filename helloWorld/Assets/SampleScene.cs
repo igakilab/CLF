@@ -66,6 +66,9 @@ public class SampleScene : MonoBehaviourPunCallbacks
             otherText.SetActive(true);
             Debug.Log("isntMaster");
         }
+
+        
+
     }
 
     //MasterButtonから呼び出される
@@ -82,7 +85,15 @@ public class SampleScene : MonoBehaviourPunCallbacks
 	{
         this.Gaming = true;
         Debug.Log("ゲーム開始!");
-	}
+        // ルームを作成したプレイヤーは、現在のサーバー時刻をゲームの開始時刻に設定する
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+
+            PhotonNetwork.CurrentRoom.SetStartTime(PhotonNetwork.ServerTimestamp);
+
+        }
+    }
 
     [PunRPC]
     private void RpcSendCount(string name,int point)
@@ -130,7 +141,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
 
     public void viewCountText(int point)
 	{
-        countText.text = PhotonNetwork.NickName + ": " + point.ToString()+"pt";
+        countText.text = PhotonNetwork.NickName + photonView.OwnerActorNr + ": " + point.ToString()+"pt";
         photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, (PhotonNetwork.NickName + photonView.OwnerActorNr), point);
     }
 
