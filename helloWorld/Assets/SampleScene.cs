@@ -30,7 +30,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     private void Start()
     {
         // プレイヤー自身の名前を"Player"に設定する
-        PhotonNetwork.NickName = "Player"+ UnityEngine.Random.Range(0,10000).ToString();
+        PhotonNetwork.NickName = "Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
         this.Gaming = false;
@@ -131,7 +131,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     public void viewCountText(int point)
 	{
         countText.text = PhotonNetwork.NickName + ": " + point.ToString()+"pt";
-        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, PhotonNetwork.NickName, point);
+        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, (PhotonNetwork.NickName + photonView.OwnerActorNr), point);
     }
 
     public static String getRankString()
