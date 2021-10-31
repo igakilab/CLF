@@ -23,9 +23,15 @@ public class chestController : MonoBehaviour
     private void chestCreate()
     {
         Vector2 chestPosition = new Vector2();
-        
+
+
         chestPosition.x = Random.Range(-29, 29);
         chestPosition.y = Random.Range(-29, 29);
+        while (Physics.OverlapSphere(chestPosition, 0).Length > 0)
+        {
+            chestPosition.x = Random.Range(-29, 29);
+            chestPosition.y = Random.Range(-29, 29);
+        }
         PhotonNetwork.Instantiate("Kaizoku_Takarabako", chestPosition, Quaternion.identity);
         Debug.Log("ïÛî†Çê∂ê¨ÇµÇΩÅI(x:" + chestPosition.x + " y:" + chestPosition.y + ")");
         
