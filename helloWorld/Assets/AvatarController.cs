@@ -24,6 +24,8 @@ public class AvatarController : MonoBehaviourPunCallbacks
     {
         if (timeUp.GetComponent<CountDown>().isTimeUp == true)
         {
+            // ルームから退出する
+            PhotonNetwork.LeaveRoom();
             SceneManager.LoadScene("GameOverScene");
         }
 
@@ -54,15 +56,19 @@ public class AvatarController : MonoBehaviourPunCallbacks
         
         }*/
 
-            if (photonView.IsMine && collision.collider.tag == chestTag)
+        if (photonView.IsMine && collision.collider.tag == chestTag)
         {
             Debug.Log("宝箱と接触した！");
             photonController.GetComponent<SampleScene>().viewCountText(++chestCount);
+            
         }
+
         if (collision.collider.tag == deadzoneTag)
         {
             Debug.Log("マグマに落ちた！");
             Destroy(this.gameObject);
+            // ルームから退出する
+            PhotonNetwork.LeaveRoom();
             SceneManager.LoadScene("GameOverScene");
         }
 
