@@ -27,6 +27,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     static public int playerNum;//ランキング用
     static public String rankString = "";
     bool Gaming;
+    public string avatarName;
     private void Start()
     {
         // プレイヤー自身の名前を"Player"に設定する
@@ -141,8 +142,9 @@ public class SampleScene : MonoBehaviourPunCallbacks
 
     public void viewCountText(int point)
 	{
-        countText.text = PhotonNetwork.NickName + photonView.OwnerActorNr + ": " + point.ToString()+"pt";
-        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, (PhotonNetwork.NickName + photonView.OwnerActorNr), point);
+        countText.text = avatarName + ": " + point.ToString()+"pt";
+        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, avatarName, point);
+        Debug.Log("viewCountText:" + avatarName);
     }
 
     public static String getRankString()

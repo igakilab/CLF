@@ -10,7 +10,6 @@ public class AvatarController : MonoBehaviourPunCallbacks
     private GameObject photonController;
     private GameObject timeUp;
     public static int chestCount = 0;
-
     private void Start()
 	{
         camera = Camera.main;
