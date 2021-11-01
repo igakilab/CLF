@@ -44,6 +44,11 @@ public class AvatarController : MonoBehaviourPunCallbacks
                 Vector3 init = new Vector3(0, 0, 0);
                 this.transform.position = init;
             }
+			if (Input.GetKeyDown(KeyCode.R))
+			{
+                Vector3 init = new Vector3(0, 0, 0);
+                this.transform.position = init;
+            }
         }
     }
 
