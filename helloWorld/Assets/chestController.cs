@@ -17,37 +17,34 @@ public class chestController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void chestCreate()
     {
         Vector2 chestPosition = new Vector2();
 
-
-        chestPosition.x = Random.Range(-29, 29);
-        chestPosition.y = Random.Range(-29, 29);
-        while (Physics.OverlapSphere(chestPosition, 0).Length > 0)
+        do
         {
             chestPosition.x = Random.Range(-29, 29);
             chestPosition.y = Random.Range(-29, 29);
-        }
+        } while (Physics2D.OverlapPoint(chestPosition));
         PhotonNetwork.Instantiate("Kaizoku_Takarabako", chestPosition, Quaternion.identity);
         Debug.Log("宝箱を生成した！(x:" + chestPosition.x + " y:" + chestPosition.y + ")");
-        
+
     }
 
     private string playerTag = "Player";
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
 
         if (collision.collider.tag == playerTag)
         {
             Debug.Log("宝箱はプレイヤーと接触した！");
             Destroy(this.gameObject);
-            if(PhotonNetwork.IsMasterClient)
-            chestCreate();
+            if (PhotonNetwork.IsMasterClient)
+                chestCreate();
         }
 
     }
