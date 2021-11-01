@@ -720,7 +720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 512384514}
   - component: {fileID: 512384513}
-  - component: {fileID: 512384515}
   - component: {fileID: 512384516}
   m_Layer: 0
   m_Name: photonControler
@@ -745,6 +744,7 @@ MonoBehaviour:
   otherText: {fileID: 358880587}
   countText: {fileID: 444723448}
   rankText: {fileID: 818825868}
+  avatarName: 
 --- !u!4 &512384514
 Transform:
   m_ObjectHideFlags: 0
@@ -759,22 +759,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &512384515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512384512}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8729b985d0677c34f8a2369e2181a3de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hostButton: {fileID: 0}
-  otherText: {fileID: 0}
-  countText: {fileID: 0}
-  rankText: {fileID: 0}
 --- !u!114 &512384516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40229,6 +40213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2053bbf194f422a41826af4857cd513e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!114 &1444115929
 MonoBehaviour:
   m_ObjectHideFlags: 0
