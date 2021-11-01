@@ -36,6 +36,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
         this.Gaming = false;
         ranking = new RankData[16];
         playerNum = 0;
+        Debug.Log("サンプルシーンスタート！");
         //DontDestroyOnLoad(rankText);
     }
 
@@ -45,7 +46,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
         // "Room"という名前のルームに参加する（ルームが存在しなければ作成して参加する）
         PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
 
-        
+
     }
 
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
@@ -73,7 +74,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
 
     //MasterButtonから呼び出される
     public void PushMasterButton()
-	{
+    {
         Debug.Log("ゲーム開始!(ホスト)");
         //photonView.RPC(nameof(RpcGameStart), RpcTarget.AllBuffered);
         photonView.RPC(nameof(RpcGameStart), RpcTarget.AllBuffered);
@@ -82,7 +83,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     //ゲーム開始処理
     [PunRPC]
     private void RpcGameStart()
-	{
+    {
         this.Gaming = true;
         Debug.Log("ゲーム開始!");
         // ルームを作成したプレイヤーは、現在のサーバー時刻をゲームの開始時刻に設定する
@@ -96,22 +97,22 @@ public class SampleScene : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void RpcSendCount(string name,int point)
-	{
+    private void RpcSendCount(string name, int point)
+    {
         Debug.Log(name + point.ToString());
         int i;
-        for(i = 0;i < playerNum; i++)
-		{
-			if (ranking[i].name.Equals(name))
-			{
+        for (i = 0; i < playerNum; i++)
+        {
+            if (ranking[i].name.Equals(name))
+            {
                 ranking[i].point = point;
                 break;
-			}
-		}
-        if(playerNum < 15 && i == playerNum)
-		{
+            }
+        }
+        if (playerNum < 15 && i == playerNum)
+        {
             ranking[playerNum++] = new RankData(name, point);
-		}
+        }
         /*for(i = 0;i < 15; i++)
 		{
             for(int j = 0;j < 16; j++)
@@ -127,27 +128,35 @@ public class SampleScene : MonoBehaviourPunCallbacks
 			}
 		}*/
         rankString = "";
-        for (i = 0;i < playerNum; i++)
-		{
+        for (i = 0; i < playerNum; i++)
+        {
             rankString += ranking[i].name + ":" + ranking[i].point.ToString() + "\n";
-		}
+        }
         rankText.text = rankString;
     }
 
     public bool isGaming()
-	{
+    {
         return Gaming;
-	}
+    }
 
     public void viewCountText(int point)
-	{
-        countText.text = PhotonNetwork.NickName + ": " + point.ToString()+"pt";
+    {
+        countText.text = PhotonNetwork.NickName + ": " + point.ToString() + "pt";
         photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, PhotonNetwork.NickName, point);
         Debug.Log("viewCountText:" + PhotonNetwork.NickName);
     }
 
     public static String getRankString()
-	{
+    {
         return rankString;
-	}
+    }
+    public class LeftRoomCallbacksSample : MonoBehaviourPunCallbacks
+    {
+        // ルームから退出した時に呼ばれるコールバック
+        public override void OnLeftRoom()
+        {
+            Debug.Log("ルームから退出しました");
+        }
+    }
 }
