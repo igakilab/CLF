@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class RankData
 {
@@ -20,6 +21,7 @@ public class RankData
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     public GameObject hostButton;
+    public GameObject timeUp;
     public Text countText;//自分のポイント数を表示するテキストボックス
     public Text rankText;//自分のポイント数を表示するテキストボックス
     static public RankData[] ranking;//ランキング用
@@ -38,6 +40,17 @@ public class SampleScene : MonoBehaviourPunCallbacks
         playerNum = 0;
         Debug.Log("サンプルシーンスタート！");
         //DontDestroyOnLoad(rankText);
+    }
+
+    private void Update()
+	{
+        if (timeUp.GetComponent<CountDown>().isTimeUp == true)
+        {
+            // ルームから退出する
+            PhotonNetwork.LeaveRoom();
+            SceneManager.LoadScene("GameOverScene");
+
+        }
     }
 
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック

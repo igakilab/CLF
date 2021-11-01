@@ -21,7 +21,7 @@ public class AvatarController : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (timeUp.GetComponent<CountDown>().isTimeUp == true)
+        /*if (timeUp.GetComponent<CountDown>().isTimeUp == true)
         {
             // ルームから退出する
             PhotonNetwork.LeaveRoom();
@@ -29,7 +29,7 @@ public class AvatarController : MonoBehaviourPunCallbacks
             SceneManager.LoadScene("GameOverScene");
 
         }
-
+        */
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine && photonController.GetComponent<SampleScene>().isGaming())
         {
