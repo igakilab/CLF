@@ -31,7 +31,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     private void Start()
     {
         // プレイヤー自身の名前を"Player"に設定する
-        PhotonNetwork.NickName = "Player";
+        PhotonNetwork.NickName = "Player" + UnityEngine.Random.Range(0, 10000);
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
         this.Gaming = false;
@@ -67,8 +67,8 @@ public class SampleScene : MonoBehaviourPunCallbacks
             otherText.SetActive(true);
             Debug.Log("isntMaster");
         }
+        viewCountText(0);
 
-        
 
     }
 
@@ -130,7 +130,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
         rankString = "";
         for (i = 0;i < playerNum; i++)
 		{
-            rankString += i.ToString() + "." + ranking[i].name + ":" + ranking[i].point.ToString() + "\n";
+            rankString += ranking[i].name + ":" + ranking[i].point.ToString() + "\n";
 		}
         rankText.text = rankString;
     }
@@ -142,9 +142,9 @@ public class SampleScene : MonoBehaviourPunCallbacks
 
     public void viewCountText(int point)
 	{
-        countText.text = avatarName + ": " + point.ToString()+"pt";
-        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, avatarName, point);
-        Debug.Log("viewCountText:" + avatarName);
+        countText.text = PhotonNetwork.NickName + ": " + point.ToString()+"pt";
+        photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, PhotonNetwork.NickName, point);
+        Debug.Log("viewCountText:" + PhotonNetwork.NickName);
     }
 
     public static String getRankString()
