@@ -31,7 +31,7 @@ public class CountDown : MonoBehaviour
         {
             true_time = time - elapsedTime;
         }
-        else if (true_time < 0)
+        else if (true_time <= 0)
         {
             isTimeUp = true;
         }

@@ -130,9 +130,9 @@ public class SampleScene : MonoBehaviourPunCallbacks
         for (i = 0;i < playerNum; i++)
 		{
             rankString += i.ToString() + "." + ranking[i].name + ":" + ranking[i].point.ToString() + "\n";
-            rankText.text = rankString;
 		}
-	}
+        //rankText.text = rankString;
+    }
 
     public bool isGaming()
 	{

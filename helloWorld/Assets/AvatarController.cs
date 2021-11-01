@@ -50,31 +50,15 @@ public class AvatarController : MonoBehaviourPunCallbacks
 
     //private string playerTag = "Player";
     private string chestTag = "Chest";
-    private string deadzoneTag = "Deadzone";
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug.Log("何かと接触した");
-        /*if (collision.collider.tag == playerTag)
-        {
-            SceneManager.LoadScene("GameOverScene");
-            Debug.Log("敵と接触した！");
         
-        }*/
 
         if (photonView.IsMine && collision.collider.tag == chestTag)
         {
             Debug.Log("宝箱と接触した！");
             photonController.GetComponent<SampleScene>().viewCountText(++chestCount);
             
-        }
-
-        if (collision.collider.tag == deadzoneTag)
-        {
-            Debug.Log("マグマに落ちた！");
-            Destroy(this.gameObject);
-            // ルームから退出する
-            PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene("GameOverScene");
         }
 
     }
