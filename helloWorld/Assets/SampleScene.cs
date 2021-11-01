@@ -20,7 +20,6 @@ public class RankData
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     public GameObject hostButton;
-    public GameObject otherText;
     public Text countText;//自分のポイント数を表示するテキストボックス
     public Text rankText;//自分のポイント数を表示するテキストボックス
     static public RankData[] ranking;//ランキング用
@@ -61,12 +60,12 @@ public class SampleScene : MonoBehaviourPunCallbacks
         {
             hostButton.SetActive(true);
             Debug.Log("isMaster");
+            this.GetComponent<chestController>().chestCreate();
+            this.GetComponent<chestController>().chestCreate();
+            this.GetComponent<chestController>().chestCreate();
+
         }
-        else
-        {
-            otherText.SetActive(true);
-            Debug.Log("isntMaster");
-        }
+
         viewCountText(0);
 
 

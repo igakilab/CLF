@@ -20,7 +20,7 @@ public class chestController : MonoBehaviour
 
     }
 
-    private void chestCreate()
+    public void chestCreate()
     {
         Vector2 chestPosition = new Vector2();
 
