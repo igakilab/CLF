@@ -40,6 +40,11 @@ public class AvatarController : MonoBehaviourPunCallbacks
             this.rb.AddForce(1000*input * Time.deltaTime);
             Vector3 playerPos = this.transform.position;
             camera.transform.position = new Vector3(playerPos.x, playerPos.y, -10);
+            if (this.transform.position.x > 30 || this.transform.position.y > 30 || this.transform.position.x < -30 || this.transform.position.y < -30)
+            {
+                Vector3 init = new Vector3(0, 0, 0);
+                this.transform.position = init;
+            }
         }
     }
 
