@@ -26,7 +26,7 @@ public class AvatarController : MonoBehaviourPunCallbacks
             // ルームから退出する
             PhotonNetwork.Disconnect();
             SceneManager.LoadScene("GameOverScene");
-
+            chestCount = 0;
         }
         
         // 自身が生成したオブジェクトだけに移動処理を行う
