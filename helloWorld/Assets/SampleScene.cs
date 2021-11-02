@@ -27,6 +27,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     static public RankData[] ranking;//ランキング用
     static public int playerNum;//ランキング用
     static public String rankString = "";
+    static public String countString = "";
     bool Gaming;
     public string avatarName;
     private void Start()
@@ -144,7 +145,8 @@ public class SampleScene : MonoBehaviourPunCallbacks
 
     public void viewCountText(int point)
     {
-        countText.text = PhotonNetwork.NickName + ": " + point.ToString() + "pt";
+        countString = PhotonNetwork.NickName + ": " + point.ToString() + "pt";
+        countText.text = countString;
         photonView.RPC(nameof(RpcSendCount), RpcTarget.AllBuffered, PhotonNetwork.NickName, point);
         Debug.Log("viewCountText:" + PhotonNetwork.NickName);
     }
@@ -152,6 +154,10 @@ public class SampleScene : MonoBehaviourPunCallbacks
     public static String getRankString()
     {
         return rankString;
+    }
+    public static String getCountString()
+    {
+        return countString;
     }
     public class LeftRoomCallbacksSample : MonoBehaviourPunCallbacks
     {
