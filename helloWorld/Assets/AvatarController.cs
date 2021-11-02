@@ -9,14 +9,16 @@ public class AvatarController : MonoBehaviourPunCallbacks
     Rigidbody2D rb;
     private GameObject photonController;
     private GameObject timeUp;
-    public static int chestCount = 0;
+    public static int chestCount;
     private void Start()
 	{
         camera = Camera.main;
         this.rb = GetComponent<Rigidbody2D>();
         photonController = GameObject.Find("photonControler");
         timeUp = GameObject.Find("GameObject");
-	}
+        chestCount = 0;
+
+    }
 
 
     private void Update()
