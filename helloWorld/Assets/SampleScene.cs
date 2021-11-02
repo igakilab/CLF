@@ -42,17 +42,6 @@ public class SampleScene : MonoBehaviourPunCallbacks
         //DontDestroyOnLoad(rankText);
     }
 
-    private void Update()
-	{
-        if (timeUp.GetComponent<CountDown>().isTimeUp == true)
-        {
-            // ルームから退出する
-            PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene("GameOverScene");
-
-        }
-    }
-
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
