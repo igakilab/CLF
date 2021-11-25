@@ -52,11 +52,14 @@ https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
 ### セットアップ
 
 アセットのインポートが正常に終了すると、自動的に`PUN Wizard`が開きます。先ほど取得したアプリケーションIDを入力して`Setup Project`を押してください。(自動で`PUN Wizard`が開かなかった場合は、メニューバーの`Window`>`Photon Unity Networking`>`PUN Wizard`から、手動で`PUN Wizard`を開くことができます。)
+![SetUP_1](https://user-images.githubusercontent.com/75965403/143400465-f710bf1a-e9de-4904-afbe-62c7c85db39c.png)
+![SetUP_2](https://user-images.githubusercontent.com/75965403/143400533-88f0ff3c-4a89-4497-b7cd-0d04f924df31.png)
 
-セットアップが行われると、PUN2の設定ファイル（`PhotonServerSettings`）が生成されます。これで初期設定は完了です。設定内容はデフォルトのままで問題ないです。
+セットアップが行われると、PUN2の設定ファイル（`PhotonServerSettings`）が生成されます。これで初期設定は完了です。設定内容はデフォルトのままで問題ありません。
 
 ### ビルド設定をWebGLに変更
 `File`>`Build Settings`から`Build Settings`ウインドウを開き`WebGL`を選択して`Switch Platform`ボタンをクリックします。
+![WebGL](https://user-images.githubusercontent.com/75965403/143400404-4d0664a5-7cb2-426e-a4a2-8371f38faba9.png)
 
 切り替えが完了すると`Switch Platform`ボタンのところが`Build`ボタンに変わるのでクリックしてビルドします。
 
@@ -75,4 +78,19 @@ GitHubで新しいリポジトリを作成し、ビルドして生成された`B
 `Deploy site`をクリックしてください。  
 
 デプロイが完了するとサイトのURLが表示されます。  
+
+## ゲームの始め方
+
+1.Netlifyで公開したサイトのURLにアクセスしゲームを読み込みます。
+2.Startボタンをクリックし、サーバーに接続します。
+3.参加者がサーバーに参加するのを待ち、最初に接続した人にのみ表示されるStartボタンを押せばゲームが開始します。
+
+![image](https://user-images.githubusercontent.com/75965403/143404093-f686735a-07ed-4e5d-9844-36c57f3647a2.png)
+
+## 操作方法
+移動：十字キー  
+画面上に出てくるボタン：マウスクリック  
+稀に壁に埋まった時：Rキーで抜け出せます  
+
+
 
