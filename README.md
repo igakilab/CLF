@@ -2,7 +2,7 @@
 
 ## 概要
 
-TreasureHunterは、PCのブラウザ上で遊ぶことができるオンラインマルチプレイ対応のタイムアタック式宝探しゲームです。セットアップ・運用方法のマニュアルを以下に記述しています。
+TreasureHunterは、PCのブラウザ上で遊ぶことができるオンラインマルチプレイ対応のスコアアタック式宝探しゲームです。セットアップ・運用方法のマニュアルを以下に記述しています。
 
 ## 準備
 
@@ -10,12 +10,16 @@ TreasureHunterは、PCのブラウザ上で遊ぶことができるオンライ�
 
 まず、[UnityHub](https://unity3d.com/jp/get-unity/download)をインストールしてください。
 ![Unity追加](https://user-images.githubusercontent.com/75965403/142373852-0bb38ac7-01ad-43f1-b01a-755e4fcab9f4.png)
-次にUnityHubから`Unity(2020.3.18f1)`をダウンロードしてインストールしてください．インストールする際，追加するモジュールを聞かれるので`WebGL Build Support`にチェックを入れてインストールしてください。  
+次にUnityHubから`Unity`をダウンロードしてインストールしてください．インストールする際，追加するモジュールを聞かれるので`WebGL Build Support`にチェックを入れてインストールしてください。  
 ![モジュール追加](https://user-images.githubusercontent.com/75965403/142373844-2e1a6705-1d4c-4835-8290-a1ff20269e9a.png)
 
 ### TreasureHunterのダウンロード
 
-[こちら](https://github.com/igakilab/CLF)からTreasureHunterをダウンロードして解凍してください。
+[こちら](https://github.com/igakilab/CLF)の`Code`から`Download ZIP`を選択し、TreasureHunterをダウンロードして解凍してください。
+![リポジトリダウンロード](https://user-images.githubusercontent.com/75965403/143399474-b537bf3d-9385-46af-8a9e-9b45d47f7937.png)
+
+
+
 
 ### プロジェクトの起動
 
@@ -31,26 +35,44 @@ Photon Cloudを利用するには、アプリケーションを登録してア�
 
 ### アプリケーションの作成
 
-サインイン後のダッシュボード画面で`新しくアプリを作成する`ボタンを押すと、新しいアプリケーションの作成画面になります。Photonの種別を`Photon PUN`にして、好きなアプリケーション名を入力したら`作成する`ボタンを押してください。正しく作成されると、ダッシュボード画面からアプリケーションIDが確認できるようになります。
+サインイン後のダッシュボード画面で`新しくアプリを作成する`ボタンを押すと、新しいアプリケーションの作成画面になります。Photonの種別を`Photon PUN`にして、好きなアプリケーション名を入力したら`作成する`ボタンを押してください。
+![アプリケーション](https://user-images.githubusercontent.com/75965403/143398077-256f4a3d-33b3-413e-a94f-2b081adad5dc.png)
+
+正しく作成されると、ダッシュボード画面からアプリケーションIDが確認できるようになります。
+![アプリケーションID](https://user-images.githubusercontent.com/75965403/143397921-8e8ce2f8-5c77-476c-962b-2e6f3c99f1f6.png)
 
 
 ### アセットのインポート
 
 Unityのプロジェクトを開いて、以下のアセットをインポートしてください。
-[アセット(PUN2)](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
+
+https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
 
 
 ### セットアップ
 
 アセットのインポートが正常に終了すると、自動的に`PUN Wizard`が開きます。先ほど取得したアプリケーションIDを入力して`Setup Project`を押してください。(自動で`PUN Wizard`が開かなかった場合は、メニューバーの`Window`>`Photon Unity Networking`>`PUN Wizard`から、手動で`PUN Wizard`を開くことができます。)
 
-セットアップが行われると、PUN2の設定ファイル（`PhotonServerSettings`）が生成されます。これで初期設定は完了です。設定内容はデフォルトのままでも問題ないですが、以下にオススメの設定を記載します。
+セットアップが行われると、PUN2の設定ファイル（`PhotonServerSettings`）が生成されます。これで初期設定は完了です。設定内容はデフォルトのままで問題ないです。
 
-###ビルド設定をWebGLに変更
+### ビルド設定をWebGLに変更
 `File`>`Build Settings`から`Build Settings`ウインドウを開き`WebGL`を選択して`Switch Platform`ボタンをクリックします。
 
 切り替えが完了すると`Switch Platform`ボタンのところが`Build`ボタンに変わるのでクリックしてビルドします。
 
 
 ### Netlifyでサイトを公開
+
+GitHubで新しいリポジトリを作成し、ビルドして生成された`Buildフォルダ`、`TemplateDataフォルダ`、`index.html`をプッシュしてください。
+[Netlify](https://app.netlify.com/)にアクセスし，`GitHub`をクリックして手順に従い登録をしてください。
+
+登録が完了すると以下のようなホーム画面に遷移するので`New site from Git`をクリックしてください。 
+
+`Github`をクリックしてください。  
+
+自分のGithubのリポジトリ一覧が表示されるので，先程作成したリポジトリをクリックしてください。  
+
+`Deploy site`をクリックしてください。  
+
+デプロイが完了するとサイトのURLが表示されます。  
 
