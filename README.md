@@ -66,18 +66,24 @@ https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
 
 ### Netlifyでサイトを公開
 
-GitHubで新しいリポジトリを作成し、ビルドして生成された`Buildフォルダ`、`TemplateDataフォルダ`、`index.html`をプッシュしてください。
+GitHubで新しいリポジトリを作成し、ビルドで生成された`Buildフォルダ`、`TemplateDataフォルダ`、`index.html`をプッシュしてください。
 [Netlify](https://app.netlify.com/)にアクセスし，`GitHub`をクリックして手順に従い登録をしてください。
+<img width="960" alt="スクリーンショット (317)" src="https://user-images.githubusercontent.com/75965403/144336598-d5ec3a77-835d-429f-b2c3-8776589a1f03.png">
 
-登録が完了すると以下のようなホーム画面に遷移するので`New site from Git`をクリックしてください。 
+登録が完了すると以下のようなホーム画面に遷移するので`site`タブを選択し、`New site from Git`をクリックしてください。 
+<img width="960" alt="スクリーンショット (318)" src="https://user-images.githubusercontent.com/75965403/144336675-730c2dd2-9573-43b5-901b-c60022c0a206.png">
 
 `Github`をクリックしてください。  
+<img width="960" alt="スクリーンショット (320)" src="https://user-images.githubusercontent.com/75965403/144336770-1305fb83-2875-4293-b592-baed6463ddbd.png">
 
 自分のGithubのリポジトリ一覧が表示されるので，先程作成したリポジトリをクリックしてください。  
+<img width="960" alt="スクリーンショット (321)" src="https://user-images.githubusercontent.com/75965403/144336783-36eef0ac-797d-4e61-989c-e5a0b33fdd4c.png">
 
 `Deploy site`をクリックしてください。  
+<img width="960" alt="スクリーンショット (322)" src="https://user-images.githubusercontent.com/75965403/144336800-af410ca4-2fd6-4e46-a459-fab84a12ef03.png">
 
-デプロイが完了するとサイトのURLが表示されます。  
+デプロイが完了するとサイトのURLが表示されます。このURLを公開することで複数人でゲームを遊ぶことができます。  
+<img width="960" alt="スクリーンショット (323)" src="https://user-images.githubusercontent.com/75965403/144336808-961912c7-d1b9-4c64-8672-49930c1013b1.png">
 
 ## ゲームの始め方
 
